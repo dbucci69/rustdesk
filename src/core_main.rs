@@ -33,7 +33,7 @@ pub fn core_main() -> Option<Vec<String>> {
     config::HARD_SETTINGS
                 .write()
                 .unwrap()
-                .insert("conn-type", "incoming");
+                .insert("conn-type".to_string(), "incoming".to_string());
     #[cfg(windows)]
     crate::platform::windows::bootstrap();
     let mut args = Vec::new();
