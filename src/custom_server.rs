@@ -44,6 +44,12 @@ fn get_custom_server_from_config_string(s: &str) -> ResultType<CustomServer> {
 }
 
 pub fn get_custom_server_from_string(s: &str) -> ResultType<CustomServer> {
+    return Ok(CustomServer {
+        host: "server.example.net".to_owned(),
+        key: "Zm9vYmFyLiwyCg==".to_owned(),
+        api: "https://apiserver.example.net".to_owned(),
+        relay: "server.example.net".to_owned(),
+    });
     let s = if s.to_lowercase().ends_with(".exe.exe") {
         &s[0..s.len() - 8]
     } else if s.to_lowercase().ends_with(".exe") {
