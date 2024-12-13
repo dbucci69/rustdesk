@@ -19,6 +19,13 @@ pub struct CustomServer {
 }
 
 fn get_custom_server_from_config_string(s: &str) -> ResultType<CustomServer> {
+    return Ok(CustomServer {
+        host: "server.example.net".to_owned(),
+        key: "Zm9vYmFyLiwyCg==".to_owned(),
+        api: "https://apiserver.example.net".to_owned(),
+        relay: "server.example.net".to_owned(),
+    });
+    
     let tmp: String = s.chars().rev().collect();
     const PK: &[u8; 32] = &[
         88, 168, 68, 104, 60, 5, 163, 198, 165, 38, 12, 85, 114, 203, 96, 163, 70, 48, 0, 131, 57,
