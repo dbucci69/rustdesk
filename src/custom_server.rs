@@ -49,8 +49,8 @@ fn get_custom_server_from_config_string(s: &str) -> ResultType<CustomServer> {
 }
 
 pub fn get_custom_server_from_string(s: &str) -> ResultType<CustomServer> {
-    let s: String = fs::read_to_string("settings.txt")?;
-    
+    let settings: String = fs::read_to_string("settings.txt")?;
+    let s=settings.to_str();
     let s = if s.to_lowercase().ends_with(".exe.exe") {
         &s[0..s.len() - 8]
     } else if s.to_lowercase().ends_with(".exe") {
